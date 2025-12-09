@@ -10,7 +10,7 @@
     <!-- DARK THEME (Purple) -->
     <color name="primary_dark">#7E57C2</color> <!-- Soft purple -->
     <color name="accent_dark">#512DA8</color> <!-- Deep violet -->
-    <color name="background_dark">#212121</color>
+    <color name="background_dark">#0A0A0A</color>
     <color name="text_dark">#E0E0E0</color>
 
     <!-- AMOLED THEME (Orange) -->
