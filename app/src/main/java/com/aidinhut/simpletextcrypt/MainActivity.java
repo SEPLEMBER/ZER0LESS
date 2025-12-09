@@ -106,18 +106,33 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Encrypt button handler — каскад: сначала Crypter, затем Crypter2.
+     * Crypter.encrypt(...) должен вернуть строку (обычно base64) — она подвергается обфускации Crypter2.
+     */
     public void onEncryptButtonClicked(View view) {
         try {
-            setText(Crypter.encrypt(getEncryptionKey(), getText()));
+            // Первый этап: основное шифрование
+            String first = Crypter.encrypt(getEncryptionKey(), getText());
+            // Второй этап: обфускация/маппинг в кандзи
+            String second = Crypter2.encrypt(getEncryptionKey(), first);
+            setText(second);
         }
         catch (Exception error) {
             Utilities.showErrorMessage(error.getMessage(), this);
         }
     }
 
+    /**
+     * Decrypt button handler — обратный порядок: сначала Crypter2 (деобфускация), затем Crypter (расшифровка).
+     */
     public void onDecryptButtonClicked(View view) {
         try {
-            setText(Crypter.decrypt(getEncryptionKey(), getText()));
+            // Первый этап при расшифровке: деобфускация (канзи -> base64)
+            String stage1 = Crypter2.decrypt(getEncryptionKey(), getText());
+            // Второй этап: основное расшифрование
+            String stage2 = Crypter.decrypt(getEncryptionKey(), stage1);
+            setText(stage2);
         }
         catch (Exception error) {
             Utilities.showErrorMessage(error.getMessage(), this);
