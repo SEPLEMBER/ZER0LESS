@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary_light">#6B8E23</color> <!-- Olive green, light matte -->
-    <color name="primary_dark">#3C4F12</color> <!-- Dark olive, matte -->
-    <color name="primary_amoled">#2E4A0F</color> <!-- Darker olive for AMOLED -->
-    <color name="background_light">#F5F5F5</color> <!-- Light matte background -->
-    <color name="background_dark">#2E2E2E</color> <!-- Dark matte background -->
-    <color name="background_amoled">#000000</color> <!-- Pure black for AMOLED -->
-    <color name="text_light">#333333</color> <!-- Dark text for light theme -->
-    <color name="text_dark">#E0E0E0</color> <!-- Light text for dark/AMOLED themes -->
-    <color name="accent_light">#8FBC8F</color> <!-- Olive accent for buttons, light theme -->
-    <color name="accent_dark">#556B2F</color> <!-- Dark olive accent for buttons, dark/AMOLED themes -->
+
+    <!-- LIGHT THEME (Olive) -->
+    <color name="primary_light">#6B8E23</color> <!-- Olive green -->
+    <color name="accent_light">#8FBC8F</color> <!-- Sage accent -->
+    <color name="background_light">#F5F5F5</color>
+    <color name="text_light">#333333</color>
+
+    <!-- DARK THEME (Purple) -->
+    <color name="primary_dark">#7E57C2</color> <!-- Soft purple -->
+    <color name="accent_dark">#512DA8</color> <!-- Deep violet -->
+    <color name="background_dark">#212121</color>
+    <color name="text_dark">#E0E0E0</color>
+
+    <!-- AMOLED THEME (Orange) -->
+    <color name="primary_amoled">#FF9800</color> <!-- Bright orange -->
+    <color name="accent_amoled">#FF6D00</color> <!-- Strong orange accent -->
+    <color name="background_amoled">#000000</color>
+    <color name="text_amoled">#FFFFFF</color>
+
 </resources>
