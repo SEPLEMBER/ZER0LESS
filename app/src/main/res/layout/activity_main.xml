@@ -9,24 +9,27 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <!-- Main editable area -->
+    <!-- Main editable area: теперь занимает всё доступное пространство над кнопками -->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_above="@+id/encryptButtonsLayout"
-        android:fillViewport="false">
+        android:fillViewport="true">
 
         <EditText
             android:id="@+id/editText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:inputType="textMultiLine"
-            android:editable="false"
-            android:enabled="true"
+            android:gravity="top"
             android:minHeight="60dp"
-            android:gravity="top" />
+            android:scrollbars="vertical"
+            android:overScrollMode="always"
+            android:imeOptions="flagNoExtractUi"
+            android:editable="false"
+            android:enabled="true" />
     </ScrollView>
 
     <!-- Encrypt / Decrypt buttons (above copy row) -->
