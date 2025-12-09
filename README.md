@@ -1,6 +1,6 @@
 # ZER0LESS 😄
 
-While AI is busy generating secure code, one introverted person sips tea in peace. Welcome to ZER0LESS, a secure text encryption app for Android, forked from the awesome SimpleTextCrypt by Aidin Gharibnavaz. This project brings modern encryption, multilingual support, and a sleek AMOLED theme to keep your secrets safe (or as safe as 2025 allows 😉).
+While AI is busy generating secure code, one introverted person sips tea in peace. Welcome to ZER0LESS, a secure text encryption app for Android, forked from the awesome SimpleTextCrypt by Aidin Gharibnavaz. This project brings modern encryption, multilingual support, and a sleek AMOLED theme to keep your secrets safe (or as safe as 2025 allows 😉). 
 
 ## Features
 - Secure Encryption: AES-256-GCM with PBKDF2 key derivation for robust text encryption.
