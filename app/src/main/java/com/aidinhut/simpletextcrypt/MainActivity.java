@@ -99,6 +99,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Lint требует public-метод с сигнатурой (View) для android:onClick в XML.
+     * Этот метод просто вызывает toggleClipboardWipe().
+     */
+    public void onClipboardWipeClicked(View view) {
+        toggleClipboardWipe();
+    }
+
     private void toggleClipboardWipe() {
         if (clipboardJobRunning) {
             // остановить
