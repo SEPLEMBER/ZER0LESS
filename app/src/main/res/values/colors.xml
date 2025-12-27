@@ -13,10 +13,10 @@
     <color name="background_dark">#0A0A0A</color>
     <color name="text_dark">#E0E0E0</color>
 
-    <!-- AMOLED THEME (Orange) -->
-    <color name="primary_amoled">#FF9800</color> <!-- Bright orange -->
-    <color name="accent_amoled">#FF6D00</color> <!-- Strong orange accent -->
-    <color name="background_amoled">#000000</color>
-    <color name="text_amoled">#FFFFFF</color>
+<!-- AMOLED THEME (Soft Amber) -->
+<color name="primary_amoled">#FFB74D</color> <!-- Soft amber -->
+<color name="accent_amoled">#FF9800</color> <!-- Muted orange -->
+<color name="background_amoled">#000000</color> <!-- True black -->
+<color name="text_amoled">#E0E0E0</color> <!-- Soft light gray -->
 
 </resources>
