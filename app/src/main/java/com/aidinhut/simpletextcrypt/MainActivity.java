@@ -1,19 +1,18 @@
 /*
- * This file is part of ZER0LESS.
- * Copyright (c) 2015-2020, Aidin Gharibnavaz <aidin@aidinhut.com>
+ * This file is part of simpletextcrypt.
  *
- * ZER0LESS is free software: you can redistribute it and/or modify
+ * is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * ZER0LESS is distributed in the hope that it will be useful,
+ * is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with ZER0LESS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with simpletextcrypt.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aidinhut.simpletextcrypt;
 
@@ -23,6 +22,7 @@ import java.util.Locale;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -253,12 +253,58 @@ public class MainActivity extends AppCompatActivity {
     public void onPasteButtonClicked(View view) {
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         if (clipboard != null && clipboard.hasText()) {
-            setText(clipboard.getText().toString());
+            final String clipText = clipboard.getText().toString();
+            EditText textBox = (EditText) findViewById(R.id.editText);
+            if (textBox != null) {
+                String current = textBox.getText().toString();
+                if (current.isEmpty()) {
+                    // Поле пустое — вставляем сразу
+                    setText(clipText);
+                } else {
+                    // Поле не пустое — показываем хардкод-диалог на английском
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setMessage("Are you sure?");
+                    builder.setCancelable(true);
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            setText(clipText);
+                        }
+                    });
+                    builder.setNegativeButton("No", null);
+                    builder.show();
+                }
+            } else {
+                // Если по какой-то причине editText не найден — вставляем
+                setText(clipText);
+            }
         }
     }
 
     public void onClearButtonClicked(View view) {
-        setText("");
+        EditText textBox = (EditText) findViewById(R.id.editText);
+        if (textBox != null) {
+            String current = textBox.getText().toString();
+            if (current.isEmpty()) {
+                // если уже пусто — ничего не делаем
+                setText("");
+                return;
+            }
+            // Если поле не пустое — показываем хардкод-диалог на английском
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Are you sure?");
+            builder.setCancelable(true);
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    setText("");
+                }
+            });
+            builder.setNegativeButton("No", null);
+            builder.show();
+        } else {
+            setText("");
+        }
     }
 
     @Override
